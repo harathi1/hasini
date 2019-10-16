@@ -13,7 +13,7 @@
     enabled: true
 - name: deploy apache
   copy: 
-    src: /home/ubuntu/roles/apache/files/index.html
+    src: /home/ubuntu/hasini/roles/apache/files/index.html
     dest: /var/www/html/  
 - name: changing the port number
   template:  
