@@ -1,0 +1,5 @@
+---
+# vars file for apache
+db_user: admin
+db_password: admin@123
+port_number: 8080

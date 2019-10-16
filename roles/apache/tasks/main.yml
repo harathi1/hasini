@@ -1,0 +1,23 @@
+---
+# tasks file for apache
+- debug:
+        msg: "{{port_number}}"    
+- name: install apache
+  yum:
+    name: httpd
+    state: present
+- name: start and enbled apche
+  service: 
+    name: httpd
+    state: started
+    enabled: true
+- name: deploy apache
+  copy: 
+    src: /home/ubuntu/roles/apache/files/index.html
+    dest: /var/www/html/  
+- name: changing the port number
+  template:  
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
+  notify: 
+    - restart apache
